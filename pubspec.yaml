@@ -28,8 +28,14 @@ dev_dependencies:
 
 
 flutter:
-  fonts:family: Nuitro
-  
+  assets: 
+      - assets/images
+  fonts:
+    - family: Nuitro
+      fonts: 
+        - asset: assets/fonts/Nunito-VariableFont_wght.ttf
+
+    
   
   uses-material-design: true
 
