@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/CodeLab/widgets/codeLab_page.dart';
+import 'package:portfolio/src/common/widgets/drawer.dart';
 import 'package:portfolio/src/common/widgets/standart_card_builder.dart';
 import 'package:portfolio/src/settings/settings.dart';
 
@@ -70,30 +70,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: const Text('CoadLab'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CodeLab(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
-      ),
+      drawer: const DrawerCreate(),
     );
   }
 }

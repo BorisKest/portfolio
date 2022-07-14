@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/src/home_page/widgets/home.dart';
+import 'package:portfolio/src/common/widgets/drawer.dart';
+import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
+
+import 'note_page/widgets/note_page.dart';
 
 class CodeLab extends StatefulWidget {
   const CodeLab({Key? key}) : super(key: key);
 
   @override
-  State<CodeLab> createState() => CodeLabState();
+  State<CodeLab> createState() => _CodeLabState();
 }
 
-class CodeLabState extends State<CodeLab> {
+class _CodeLabState extends State<CodeLab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,34 +24,45 @@ class CodeLabState extends State<CodeLab> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
-            children: const <Widget>[],
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StreamPage(),
+                    ),
+                  );
+                }),
+                child: Row(
+                  children: const [
+                    Icon(Icons.stream),
+                    Text(' Stream'),
+                  ],
+                ),
+              ),
+              const Divider(),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NotePage(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.note),
+                    Text(' Note'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Menu'),
-            ),
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const DrawerCreate(),
     );
   }
 }

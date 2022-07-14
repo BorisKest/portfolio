@@ -22,14 +22,20 @@ class BuildCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Image.asset(image),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(image),
+                  ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(titleText),
-                      Text(bodyText),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(titleText),
+                        Text(bodyText),
+                      ],
+                    ),
                   ),
                 )
               ],
