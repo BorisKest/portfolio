@@ -14,35 +14,39 @@ class CodeLab extends StatefulWidget {
 class _CodeLabState extends State<CodeLab> {
   @override
   Widget build(BuildContext context) {
+    var sideSpace = MediaQuery.of(context).size.width / 7;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Codelab'),
+        title: const Text('Practice'),
       ),
       body: Container(
         color: Theme.of(context).secondaryHeaderColor,
-        margin: const EdgeInsets.only(left: 150, top: 30, right: 150),
+        margin: EdgeInsets.only(left: sideSpace, top: 30, right: sideSpace),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: <Widget>[
-              ElevatedButton(
-                onPressed: (() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const StreamPage(),
-                    ),
-                  );
-                }),
-                child: Row(
-                  children: const [
-                    Icon(Icons.stream),
-                    Text(' Stream'),
-                  ],
+              Container(
+                width: sideSpace,
+                child: OutlinedButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const StreamPage(),
+                      ),
+                    );
+                  }),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.stream),
+                      Text(' Stream'),
+                    ],
+                  ),
                 ),
               ),
               const Divider(),
-              ElevatedButton(
+              OutlinedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
