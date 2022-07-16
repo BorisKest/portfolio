@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/common/widgets/drawer.dart';
+import 'package:portfolio/src/practice/accelerometer/accelerometer.dart';
+import 'package:portfolio/src/practice/note_page/widgets/note_page.dart';
 import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
-
-import 'note_page/widgets/note_page.dart';
 
 class CodeLab extends StatefulWidget {
   const CodeLab({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _CodeLabState extends State<CodeLab> {
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: sideSpace,
                 child: OutlinedButton(
                   onPressed: (() {
@@ -59,6 +59,22 @@ class _CodeLabState extends State<CodeLab> {
                   children: const [
                     Icon(Icons.note),
                     Text(' Note'),
+                  ],
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AccelerometerScreen(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.note),
+                    Text(' SPEED'),
                   ],
                 ),
               ),
