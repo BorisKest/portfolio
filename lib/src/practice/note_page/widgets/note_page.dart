@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/model/note.dart';
-import 'package:portfolio/src/service/db_helper.dart';
-import 'package:portfolio/src/service/noteService.dart';
 
 class NotePage extends StatefulWidget {
   const NotePage({Key? key}) : super(key: key);

@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:math' as math show Random;
 
 @immutable
 abstract class LoadAction {
@@ -71,6 +70,10 @@ class FethcResult {
       'FechResult (isRetrievedFromCache = $isRetrievedFromCache, persons = $persons)';
 }
 
+extension Subscription<T> on Iterable<T> {
+  T? operator [](int index) => length > index ? elementAt(index) : null;
+}
+
 class PersonsBloc extends Bloc<LoadAction, FethcResult?> {
   final Map<PersonUrl, Iterable<Person>> _cache = {};
   PersonsBloc() : super(null) {
@@ -108,6 +111,60 @@ class BlocScreen extends StatefulWidget {
 class _BlocScreenState extends State<BlocScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Bloc'),
+      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  context.read<PersonsBloc>().add(
+                        const LoadPersonsAction(
+                          url: PersonUrl.personse1,
+                        ),
+                      );
+                },
+                icon: const Icon(Icons.download),
+                label: const Text('Load jison 1'),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  context.read<PersonsBloc>().add(
+                        const LoadPersonsAction(
+                          url: PersonUrl.personse2,
+                        ),
+                      );
+                },
+                icon: const Icon(Icons.download),
+                label: const Text('Load jison 2'),
+              ),
+            ],
+          ),
+          BlocBuilder<PersonsBloc, FethcResult?>(
+            buildWhen: (previousResult, currentResult) {
+              return previousResult?.persons != currentResult?.persons;
+            },
+            builder: ((context, fetchResult) {
+              final persons = fetchResult?.persons;
+              if (persons == null) {
+                return const SizedBox();
+              }
+              return ListView.builder(
+                itemCount: persons.length,
+                itemBuilder: ((context, index) {
+                  final person = persons[index]!;
+                  return ListTile(
+                    title: Text(person.name),
+                  );
+                }),
+              );
+            }),
+          )
+        ],
+      ),
+    );
   }
 }

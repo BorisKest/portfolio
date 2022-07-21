@@ -46,7 +46,7 @@ class _QubitScreenState extends State<QubitScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Qubit'),
+        title: const Text('Qubit'),
       ),
       body: Center(
         child: StreamBuilder<String?>(
