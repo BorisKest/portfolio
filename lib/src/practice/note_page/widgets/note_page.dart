@@ -1,26 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/model/note.dart';
 import 'package:portfolio/src/service/db_helper.dart';
-
-abstract class INotesController {
-  List<Note> get notes;
-
-  abstract final Stream<List<Note>> stream;
-  dynamic note = '';
-  int id = 0;
-
-  Future<void> fetch(note) async {
-    DBProvider.db.newNote(note);
-  }
-
-  Future<void> upsert(Note note) async {
-    DBProvider.db.updateNote(note);
-  }
-
-  Future<void> delete(Note note) async {
-    DBProvider.db.deleteNote(id);
-  }
-}
+import 'package:portfolio/src/service/noteService.dart';
 
 class NotePage extends StatefulWidget {
   const NotePage({Key? key}) : super(key: key);
@@ -64,6 +47,15 @@ class _NotePageState extends State<NotePage> {
     super.dispose();
   }
 
+  var _noteSteam;
+
+  @override
+  void initState() {
+    // final noteService = NotesBloc();
+    //_noteSteam = noteService.noteSteram.stream;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +71,28 @@ class _NotePageState extends State<NotePage> {
           ),
         ],
       ),
-      body: const Center(),
+      body: StreamBuilder<Note>(
+        stream: _noteSteam,
+        builder: (context, state) {
+          if (!state.hasData) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [Text('No notes yet.')],
+              ),
+            );
+          }
+
+          return ListView.builder(
+            itemBuilder: ((context, index) {
+              return _noteSteam.listen((value) {
+                Text(value);
+              });
+            }),
+          );
+        },
+      ),
     );
   }
 }

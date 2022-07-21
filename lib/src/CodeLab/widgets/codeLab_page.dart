@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/common/widgets/drawer.dart';
 import 'package:portfolio/src/practice/accelerometer/accelerometer.dart';
+import 'package:portfolio/src/practice/bloc/qubit/qubit.dart';
 import 'package:portfolio/src/practice/note_page/widgets/note_page.dart';
 import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
 
@@ -73,8 +74,24 @@ class _CodeLabState extends State<CodeLab> {
                 },
                 child: Row(
                   children: const [
-                    Icon(Icons.note),
+                    Icon(Icons.speed),
                     Text(' SPEED'),
+                  ],
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => (const QubitScrin()),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.query_builder_outlined),
+                    Text(' Qubit'),
                   ],
                 ),
               ),
