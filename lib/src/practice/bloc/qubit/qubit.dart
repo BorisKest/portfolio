@@ -20,14 +20,14 @@ class NamesCubit extends Cubit<String?> {
       );
 }
 
-class QubitScrin extends StatefulWidget {
-  const QubitScrin({Key? key}) : super(key: key);
+class QubitScreen extends StatefulWidget {
+  const QubitScreen({Key? key}) : super(key: key);
 
   @override
-  State<QubitScrin> createState() => _QubitScrinState();
+  State<QubitScreen> createState() => _QubitScreenState();
 }
 
-class _QubitScrinState extends State<QubitScrin> {
+class _QubitScreenState extends State<QubitScreen> {
   late final NamesCubit cubit;
 
   @override

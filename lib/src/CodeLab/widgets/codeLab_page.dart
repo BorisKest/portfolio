@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/src/common/widgets/drawer.dart';
 import 'package:portfolio/src/practice/accelerometer/accelerometer.dart';
+import 'package:portfolio/src/practice/bloc/bloc.dart';
 import 'package:portfolio/src/practice/bloc/qubit/qubit.dart';
 import 'package:portfolio/src/practice/note_page/widgets/note_page.dart';
 import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
@@ -84,14 +86,33 @@ class _CodeLabState extends State<CodeLab> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => (const QubitScrin()),
+                      builder: (context) => (const QubitScreen()),
                     ),
                   );
                 },
                 child: Row(
                   children: const [
-                    Icon(Icons.query_builder_outlined),
+                    Icon(Icons.smart_button),
                     Text(' Qubit'),
+                  ],
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (_) => PersonsBloc(),
+                        child: const BlocScreen(),
+                      ),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.work),
+                    Text(' Bloc'),
                   ],
                 ),
               ),
