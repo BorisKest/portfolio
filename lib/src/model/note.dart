@@ -1,7 +1,7 @@
-final String tableNote = 'note';
-final String columnId = '_id';
-final String columnTitleText = 'titleText';
-final String columnBodyText = 'bodyText';
+const String tableNote = 'note';
+const String columnId = '_id';
+const String columnTitleText = 'titleText';
+const String columnBodyText = 'bodyText';
 
 class Note {
   int id;

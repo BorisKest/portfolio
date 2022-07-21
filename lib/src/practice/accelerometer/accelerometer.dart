@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:sensors_plus/sensors_plus.dart';
 
-class MyWidget extends StatelessWidget {
-  MyWidget({Key? key}) : super(key: key);
+class AccelerometerScreen extends StatelessWidget {
+  AccelerometerScreen({Key? key}) : super(key: key);
 
   var speed = 0;
   List<double>? _accelerometerValues;
