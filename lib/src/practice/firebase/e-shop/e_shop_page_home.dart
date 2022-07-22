@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/practice/firebase/widgets/small_product_card.dart';
 
-List<String> images = [];
+List<String> imagesDogs = [];
+List<String> imagesCats = [];
 
 class EShopHomePage extends StatefulWidget {
   const EShopHomePage({Key? key}) : super(key: key);
