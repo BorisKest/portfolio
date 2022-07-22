@@ -4,6 +4,7 @@ import 'package:portfolio/src/common/widgets/drawer.dart';
 import 'package:portfolio/src/practice/accelerometer/accelerometer.dart';
 import 'package:portfolio/src/practice/bloc/bloc.dart';
 import 'package:portfolio/src/practice/bloc/qubit/qubit.dart';
+import 'package:portfolio/src/practice/firebase/e-shop/e_shop_page_home.dart';
 import 'package:portfolio/src/practice/note_page/widgets/note_page.dart';
 import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
 
@@ -113,6 +114,22 @@ class _CodeLabState extends State<CodeLab> {
                   children: const [
                     Icon(Icons.work),
                     Text(' Bloc'),
+                  ],
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EShopHomePage(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Icon(Icons.work),
+                    Text(' Pet shop'),
                   ],
                 ),
               ),
