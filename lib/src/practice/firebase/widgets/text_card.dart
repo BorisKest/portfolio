@@ -9,9 +9,13 @@ class TextCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(text),
+        padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 25),
+        ),
       ),
     );
   }
