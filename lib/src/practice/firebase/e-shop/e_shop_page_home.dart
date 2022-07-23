@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/src/practice/firebase/e-shop/services/navigate.dart';
 import 'package:portfolio/src/practice/firebase/widgets/pet_card.dart';
 import 'package:portfolio/src/practice/firebase/widgets/small_product_card.dart';
 
@@ -109,7 +110,7 @@ class _EShopHomePageState extends State<EShopHomePage> {
                     left: 20.0, right: 20.0, bottom: 10.0),
                 child: Row(
                   children: const [
-                    Text('Browse pet types'),
+                    Text('Browse pet types', style: TextStyle(fontSize: 20.0)),
                     Spacer(),
                     Text('See all'),
                   ],
@@ -119,17 +120,27 @@ class _EShopHomePageState extends State<EShopHomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
-                  child: Row(
-                    children: [
-                      PetCard(
-                        image: 'assets/images/pets/dog_type.png',
-                        title: 'Dog',
-                      ),
-                      PetCard(
-                        image: 'assets/images/pets/cat_type.png',
-                        title: 'Cat',
-                      ),
-                    ],
+                  child: Expanded(
+                    child: Row(
+                      children: const [
+                        PetCard(
+                          image: 'assets/images/pets/dog_type.png',
+                          title: 'Dog',
+                        ),
+                        PetCard(
+                          image: 'assets/images/pets/cat_type.png',
+                          title: 'Cat',
+                        ),
+                        PetCard(
+                          image: 'assets/images/pets/cheese.png',
+                          title: 'Cheese',
+                        ),
+                        PetCard(
+                          image: 'assets/images/pets/rock.png',
+                          title: 'Rock',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

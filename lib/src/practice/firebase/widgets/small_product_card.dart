@@ -30,11 +30,9 @@ class SmallProductCard extends StatelessWidget {
               child: Material(
                 clipBehavior: Clip.hardEdge,
                 borderRadius: BorderRadius.circular(10),
-                child: FittedBox(
+                child: Image.asset(
+                  image,
                   fit: BoxFit.fill,
-                  child: Image.asset(
-                    image,
-                  ),
                 ),
               ),
             ),

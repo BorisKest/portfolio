@@ -14,7 +14,6 @@ class PetCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: 8),
-      width: 100,
       height: 100,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -24,13 +23,9 @@ class PetCard extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                height: 100,
-                width: 100,
                 child: Image.asset(
                   image,
                   fit: BoxFit.fill,
-                  width: 100,
-                  height: 10,
                 ),
               ),
               Text(title),

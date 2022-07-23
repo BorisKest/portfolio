@@ -5,6 +5,7 @@ import 'package:portfolio/src/practice/accelerometer/accelerometer.dart';
 import 'package:portfolio/src/practice/bloc/bloc.dart';
 import 'package:portfolio/src/practice/bloc/qubit/qubit.dart';
 import 'package:portfolio/src/practice/firebase/e-shop/e_shop_page_home.dart';
+import 'package:portfolio/src/practice/firebase/e-shop/services/navigate.dart';
 import 'package:portfolio/src/practice/note_page/widgets/note_page.dart';
 import 'package:portfolio/src/practice/stream/widgets/stream_page.dart';
 
@@ -122,7 +123,7 @@ class _CodeLabState extends State<CodeLab> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const EShopHomePage(),
+                      builder: (context) => const Navigate(),
                     ),
                   );
                 },
