@@ -29,7 +29,7 @@ class DrawerCreate extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('CoadLab'),
+            title: const Text('Practice'),
             onTap: () {
               Navigator.push(
                 context,

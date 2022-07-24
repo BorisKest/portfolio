@@ -30,8 +30,7 @@ enum PersonUrl {
 extension UrlString on PersonUrl {
   String get urlString {
     switch (this) {
-      case PersonUrl.personse1:
-    }
+     
   }
 }
 
