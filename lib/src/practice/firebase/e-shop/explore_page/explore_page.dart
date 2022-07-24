@@ -89,7 +89,6 @@ class _ExplorePageState extends State<ExplorePage> {
                     image: imagesCategory[indexInList],
                     text: dogCategoryName[indexInList],
                     color: colorList[indexInList],
-                    productId: indexInList,
                   );
                 },
                 childCount: 6,

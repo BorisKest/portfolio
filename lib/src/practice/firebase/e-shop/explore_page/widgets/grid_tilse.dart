@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:portfolio/src/practice/firebase/e-shop/product_page.dart/product_page.dart';
+import 'package:portfolio/src/practice/firebase/e-shop/product_page.dart/products_list.dart';
 
 class GridCard extends StatelessWidget {
   final Color? color;
   final String image;
   final String text;
-  final int productId;
 
   const GridCard({
     Key? key,
     this.color,
     required this.image,
     required this.text,
-    required this.productId,
   }) : super(key: key);
 
   @override
@@ -42,7 +41,7 @@ class GridCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ProductPage(),
+            builder: (context) => ProductListPage(),
           ),
         );
       },
