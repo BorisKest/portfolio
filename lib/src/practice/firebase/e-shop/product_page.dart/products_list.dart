@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/src/practice/firebase/e-shop/models/products.dart';
 import 'package:portfolio/src/practice/firebase/e-shop/services/product_stream.dart';
 
 import '../explore_page/widgets/grid_tilse.dart';
+import 'widgets/product_grid_builder.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({Key? key}) : super(key: key);
@@ -23,29 +26,22 @@ class _ProductListPageState extends State<ProductListPage> {
         ],
       ),
       body: StreamBuilder(
-        stream: ProductStream().getProductStream(),
-        builder: (context, snapshot) {
-          final tilesGrid = <GridTile>[];
-          if (snapshot.hasData) {
-            final products = snapshot.data as List<Product>;
-            tilesGrid.addAll(products.map((nextProduct) {
-              return GridTile(
-                  child: GridCard(
-                image: nextProduct.image,
-                text: nextProduct.name,
-              ));
-            }));
-          }
-          return GridView(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 20,
-              mainAxisSpacing: 20,
-            ),
-            children: GridView(),
-          );
-        },
-      ),
+          stream: ProductStream().getProductStream(),
+          builder: (context, snapshot) {
+            final tilesList = <ListTile>[];
+            if (snapshot.hasData) {
+              final products = snapshot.data as List<Product>;
+              tilesList.addAll(products.map((nextProduct) {
+                return ListTile(
+                  title: Text(nextProduct.name),
+                  subtitle: Text(nextProduct.descripton),
+                );
+              }));
+            } else {
+              return Text('no data');
+            }
+            return Container();
+          }),
     );
   }
 }
